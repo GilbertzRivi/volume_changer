@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+        }
+        #container{
+            width: fit-content;
+            height: 300px;
+            margin: auto;
+        }
+        #sliderDiv{
+            width: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <a href="/mute"><button>Mute</button></a></br>
+        <div id="sliderDiv"><label for="sliderRange" id="sliderValue">0</label></div>
+        <input type="range" min="1" max="100" value="0" id="sliderRange"></br>
+        <button id="changeVolume">change volume</button>
+    <div>
+
+    <script>
+        var rangeslider = document.getElementById("sliderRange");
+        var volumebutton = document.getElementById('changeVolume');
+        var output = document.getElementById("sliderValue");
+        var volume = 0;
+
+        rangeslider.oninput = function() {
+            volume = this.value
+            output.innerHTML = volume;
+        }
+        volumebutton.onclick = function() {
+            window.location.href = `/volume/${volume}`;
+        }
+        
+    </script>
+
+</body>
+</html>
